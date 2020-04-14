@@ -1,8 +1,6 @@
 # -----------------------------------------------------------------------------
 # Alpha Forex
 # -----------------------------------------------------------------------------
-# Team: MaxCodes
-# -----------------------------------------------------------------------------
 # Author: Maxime Sirois
 # -----------------------------------------------------------------------------
 """
@@ -27,12 +25,8 @@ def parse_args(args):
     :return: Parsed arguments object
     """
     parser = argparse.ArgumentParser()
-    # parser.add_argument("firstarg", metavar="FIRST_ARG", type=str,
-    #                     help="First Argument Example")
-    parser.add_argument("--debug", action="store_true",
-                        help="Increases verbosity")
-    parser.add_argument("--silent", action="store_true",
-                        help="Turns off verbose")
+    parser.add_argument("--debug", action="store_true", help="Increases verbosity")
+    parser.add_argument("--silent", action="store_true", help="Turns off verbose")
     return parser.parse_args(args)
 
 
