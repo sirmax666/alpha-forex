@@ -15,8 +15,8 @@ from pathlib import Path
 import sys
 
 from lib.alpha_forex import constants as C
+from lib.alpha_forex import environment
 from lib.alpha_forex import utils
-from lib.alpha_forex import api
 
 
 def parse_args(args):
@@ -77,15 +77,9 @@ def main(argv, verbose=True):
         logging.getLogger().setLevel(logging.CRITICAL)
     # --------------------------------------------
 
-    # DEFINE GENERAL VARIABLES FROM CONFIG
-    API_KEY = config.get('API', 'API_KEY')
-    URL = config.get('API', 'URL')
-
-    alphaclient = api.AlphaVantageClient(url=URL, api_key=API_KEY)
-
-    response = alphaclient.get_rate('USD', 'JPY')
-
-    print(response.text)
+    # Setup Environment
+    env = environment.Environment(config)
+    print(env.user.wallet.balance)
 
 
 if __name__ == '__main__':

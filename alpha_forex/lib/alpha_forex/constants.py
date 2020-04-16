@@ -18,6 +18,7 @@ _CURRENT_FOLDER = os.path.dirname(os.path.realpath(__file__))
 MAIN_FOLDER = os.path.join(_CURRENT_FOLDER, '..', '..')
 PARAM_FOLDER = os.path.join(MAIN_FOLDER, 'param')
 INI_PATH = os.path.join(PARAM_FOLDER, 'config.ini')
+DB_PATH = os.path.join(PARAM_FOLDER, 'alpha.db')
 
 # --- GLOBALS ---
 NULL = ['NAN', 'NULL', 'N/A', 'NONE', '']

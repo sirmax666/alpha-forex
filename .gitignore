@@ -20,4 +20,5 @@ docs/build
 
 # Configs
 *.ini
+*.db
 !alpha_forex/param/config.ini

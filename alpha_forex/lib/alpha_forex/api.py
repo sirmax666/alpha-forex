@@ -30,9 +30,22 @@ class API:
 
 class AlphaVantageClient(API):
 
-    def get_rate(self, from_currency, to_currency):
+    def get_fx_rate(self, from_currency, to_currency, reach='exchange'):
+        function_map = {
+            "exchange": "CURRENCY_EXCHANGE_RATE",
+            "intraday": "FX_INTRADAY",
+            "daily": "FX_DAILY",
+            "weekly": "FX_WEEKLY",
+            "monthly": "FX_MONTHLY"
+        }
+        try:
+            function = function_map[reach]
+        except KeyError:
+            logger.error(f"The reach argument value does not exist: '{reach}'")
+            raise
+
         payload = {
-            "function": "CURRENCY_EXCHANGE_RATE",
+            "function": function,
             "from_currency": from_currency,
             "to_currency": to_currency
         }

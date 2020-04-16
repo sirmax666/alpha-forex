@@ -4,3 +4,4 @@ pytest-mock
 requests
 sphinx
 sphinx-markdown-builder
+sqlparse
