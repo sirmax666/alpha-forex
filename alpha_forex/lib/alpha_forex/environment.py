@@ -63,7 +63,10 @@ class User:
         self.wallet = Wallet(self.db, self.user_id)
 
     def _set_info(self):
-        res, hdr = self.db.execute(f"SELECT * FROM USER_INFO WHERE USER_NAME='{self.username}';")
+        stmt = (f"SELECT * "
+                f"FROM USER_INFO "
+                f"WHERE USER_NAME='{self.username}';")
+        res, hdr = self.db.execute(stmt)
         return dict(zip(hdr, res[0]))
 
 
@@ -83,9 +86,6 @@ class Wallet:
         else:
             account_balance = res[0][0]
         return account_balance
-
-    def calculate_profit(self):
-        pass
 
 
 def read_sql(path):

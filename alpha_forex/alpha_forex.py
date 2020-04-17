@@ -16,6 +16,7 @@ import sys
 
 from lib.alpha_forex import constants as C
 from lib.alpha_forex import environment
+from lib.alpha_forex import tradecenter
 from lib.alpha_forex import utils
 
 
@@ -80,6 +81,8 @@ def main(argv, verbose=True):
     # Setup Environment
     env = environment.Environment(config)
     print(env.user.wallet.balance)
+    center = tradecenter.TradeCenter(env.user, env.client)
+    center.buy('USD', 'CAD', 1.0)
 
 
 if __name__ == '__main__':
